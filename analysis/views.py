@@ -38,8 +38,9 @@ def analyse(request):
             Agerangelow = face['AgeRange']['Low']
             Agerangehigh = face['AgeRange']['High']
             Gender =  face['Gender']["Value"]
-            Emotion =  face['Emotions'][1]["Type"]
+            Emotion =  face['Emotions'][0]["Type"]
             Eyeglasses = face['Eyeglasses']['Value']
+            print(Emotion)
             if Eyeglasses:
                 Eyeglasses = "wearing glasses"
             else:
@@ -48,7 +49,9 @@ def analyse(request):
             if beard :
                 beard = "has beard."
             else:
-                beard = "does not have beard."
+                beard = "does not have beard"
+        for face in res:
+            print(json.dumps(face, indent=4, sort_keys=True))
         context = {
             "Agerangelow": Agerangelow,
             "Agerangehigh": Agerangehigh,
@@ -58,6 +61,7 @@ def analyse(request):
             "filePathName":filePathName,
             "beard":beard,
         }
+
         return render(request, 'analysis/analysis.html', context)
     else:
         return render(request, 'analysis/home.html')
