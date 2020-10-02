@@ -1,12 +1,13 @@
 {% extends "analysis/home.html" %}
 {% block content %}
-    <div>
+    <div style="margin-top: 20px">
         <img src={{filePathName}} alt='imagename' width="200px" height="200px">
     </div>
-    <div>
-    Age Range is : {{Agerange}}</br>
+    <br>
+    Age Range is : {{Agerangelow}}  - {{Agerangehigh}}</br>
     Gender is : {{Gender}}</br>
     Emotion is : {{Emotion}}</br>
-    The person on photo is {{Sunglass}}</br>
+    The person on photo is {{Eyeglasses}}.</br>
+    The person on the photo has {{beard}}.</br>
     </div>
 {% endblock %}
