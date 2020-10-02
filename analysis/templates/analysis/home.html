@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://kit.fontawesome.com/65e590674d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static "analysis/style.css" %}">
+</head>
+<body>
+   <div class="wrapper">
+       <div class="sidebar">
+           <h2>AWS REKOGNITION</h2>
+
+       </div>
+       <div class="main-content">
+           <div class="header">Welcome</div>
+           <div class="info">
+               <h2>Welcome to the board!!!</h2>
+               <p> Analysis with AWS Recognition</p>
+           </div>
+           <div class="content">
+           <h2>Upload Image for Analysis</h2>
+            <br>
+           <form method="post" enctype="multipart/form-data" action="analyse">
+               {% csrf_token %}
+                        <label for="fname">Upload Image File Here:</label>
+                        <div><input name="filepath" type="file" >
+                            <input type="submit" value="submit">
+                             {% block content %}
+                            {% endblock %}
+
+
+
+           </form>
+
+
+          </body>
+          </html>
+   </div>
+</html>
