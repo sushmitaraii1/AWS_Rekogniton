@@ -40,7 +40,11 @@ def analyse(request):
             Gender =  face['Gender']["Value"]
             Emotion =  face['Emotions'][0]["Type"]
             Eyeglasses = face['Eyeglasses']['Value']
-            print(Emotion)
+            Smile = face['Smile']["Value"]
+            if Smile:
+                smily = "This person is smiling"
+            else:
+                smily = "This person is not smiling"
             if Eyeglasses:
                 Eyeglasses = "wearing glasses"
             else:
@@ -60,6 +64,7 @@ def analyse(request):
             "Eyeglasses":Eyeglasses,
             "filePathName":filePathName,
             "beard":beard,
+            "smily":smily,
         }
 
         return render(request, 'analysis/analysis.html', context)
